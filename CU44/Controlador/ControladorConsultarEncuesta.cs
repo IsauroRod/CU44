@@ -17,7 +17,7 @@ namespace CU44.Controlador
         private List<Llamada> llamadasRespondidas;
         public ControladorConsultarEncuesta()
         {
-            
+
         }
         public ControladorConsultarEncuesta(PantallaConsultarEncuesta v)
         {
@@ -25,12 +25,12 @@ namespace CU44.Controlador
             llamadas = getAll();
             llamadasRespondidas = buscarLlamadasRespondidas();
         }
-
-        public List<Llamada> tomarDatosPeriodoLlamada(DateTime fechaInicio, DateTime fechaFin)
+        public void tomarDatosPeriodoLlamada(DateTime fechaInicio, DateTime fechaFin)
         {
             this.fechaInicio = fechaInicio;
             this.fechaFin = fechaFin;
-            return buscarLlamadasRespondidas();
+            List<Llamada> llamadasRespondidas = buscarLlamadasRespondidas();
+            pantalla.pedirSeleccionLlamada(llamadasRespondidas);
         }
 
         public List<Llamada> buscarLlamadasRespondidas()
@@ -48,15 +48,15 @@ namespace CU44.Controlador
             return llamadasRespondidas;
         }
 
-        public List<Llamada> getAll() 
+        public List<Llamada> getAll()
         {
 
             llamadas = Llamada.traerTodasLasLlamadas();
             return llamadas;
-      
+
         }
 
-        public List<Llamada> getLlamadasRespondidas() 
+        public List<Llamada> getLlamadasRespondidas()
         {
             return llamadasRespondidas;
         }
@@ -66,7 +66,7 @@ namespace CU44.Controlador
             return llamadas;
         }
 
-        public DataTable llamadasToDataTable(List<Llamada> llamadas) 
+        public DataTable llamadasToDataTable(List<Llamada> llamadas)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Duracion");
@@ -76,24 +76,29 @@ namespace CU44.Controlador
             dt.Columns.Add("Estado Actual");
             foreach (Llamada llamada in llamadas)
             {
+                string nombreCliente = llamada.getNombreCliente();
+                int? duracion = llamada.getDuracion;
+                CambioEstado estadoActual = llamada.ObtenerEstadoActual();
+                string nombreEstado = estadoActual.getNombreEstado();
+
                 DataRow fila = dt.NewRow();
-                fila["Duracion"] = llamada.getDuracion;
-                fila["Cliente"] = llamada.getNombreCliente();
+                fila["Duracion"] = duracion;
+                fila["Cliente"] = nombreCliente;
                 fila["Fecha Inicio"] = llamada.getFechaInicio();
                 fila["Fecha Fin"] = llamada.getFechaFin();
-                fila["Estado Actual"] = llamada.getNombreEstadoActual();
+                fila["Estado Actual"] = nombreEstado;
                 dt.Rows.Add(fila);
             }
             return dt;
         }
         public DataTable encuestasToDataTable(Encuesta encuesta)
         {
-            List<Encuesta> encuestas = new List<Encuesta>{ encuesta };
+            List<Encuesta> encuestas = new List<Encuesta> { encuesta };
             return encuestasToDataTable(encuestas);
 
         }
 
-        
+
 
         public DataTable encuestasToDataTable(List<Encuesta> encuestas)
         {
@@ -122,24 +127,24 @@ namespace CU44.Controlador
                         fila["Fecha Vigencia"] = encuesta.getFechaVigencia();
                         fila["Pregunta"] = pregunta.getPregunta();
                         fila["Respuesta"] = respuestaPosible.getValor();
-                        
-                        
-                            foreach (RespuestaDeCliente respuestaDeCliente in llamadaSeleccionada.getRespuestaDeClientes())
+
+
+                        foreach (RespuestaDeCliente respuestaDeCliente in llamadaSeleccionada.getRespuestaDeClientes())
+                        {
+                            if ((respuestaPosible.getDescripcion()).Equals(respuestaDeCliente.DescripcionRta))
                             {
-                                if ((respuestaPosible.getDescripcion()).Equals(respuestaDeCliente.DescripcionRta))
-                                {
                                 fila["Respuesta Respondida"] = "x";
                                 break;
-                                }
-
                             }
-                        
+
+                        }
+
                         dt.Rows.Add(fila);
 
                     }
-                    
+
                 }
-                
+
 
             }
 
@@ -150,17 +155,20 @@ namespace CU44.Controlador
         {
             MessageBox.Show("Fin de Caso de Uso");
         }
-        public void getDatosLlamada() 
+        public void getDatosLlamada()
         {
-
+            String nombreCliente = llamadaSeleccionada.getNombreCliente();
+            Encuesta encuesta = getEncuestaLlamada();
+            DataTable dtEncuesta = encuestasToDataTable(encuesta);
+            pantalla.mostrarDatosLlamada(nombreCliente, dtEncuesta);
         }
 
-        public void seleccionarLlamada(int indice)
+        public void tomarSeleccionLlamada(int indice)
         {
             try
             {
                 llamadaSeleccionada = llamadasRespondidas[indice];
-
+                getDatosLlamada();
             }
             catch (Exception)
             {

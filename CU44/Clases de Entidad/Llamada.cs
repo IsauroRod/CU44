@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace CU44.Clases_de_Entidad
 {
-    class Llamada
+    public class Llamada
     {
         private int? duracion;
         private List<CambioEstado> cambiosEstado;
@@ -246,6 +246,25 @@ namespace CU44.Clases_de_Entidad
         {
             return respuestasDeClientes;
         }
+
+        public CambioEstado ObtenerEstadoActual()
+        {
+            CambioEstado estadoActual = null;
+            DateTime fechaMasReciente = DateTime.MinValue;
+
+            foreach (CambioEstado cambio in cambiosEstado)
+            {
+                DateTime fechaHoraDeCambio = cambio.getFechaHoraInicio();
+                if (fechaHoraDeCambio > fechaMasReciente)
+                {
+                    fechaMasReciente = fechaHoraDeCambio;
+                    estadoActual = cambio;
+                }
+            }
+
+            return estadoActual;
+        }
+
 
         internal string getNombreEstadoActual()
         {

@@ -71,7 +71,7 @@ namespace CU44
             dgLlamadas.Size = new System.Drawing.Size(512, 352);
             dgLlamadas.TabIndex = 4;
             dgLlamadas.CellContentClick += dgLlamadas_CellContentClick;
-            dgLlamadas.CellDoubleClick += seleccionarLlamada;
+            dgLlamadas.CellDoubleClick += tomarSeleccionLlamada;
             // 
             // btnIngresarPeriodo
             // 

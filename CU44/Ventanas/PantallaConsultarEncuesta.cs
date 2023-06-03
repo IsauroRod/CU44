@@ -31,18 +31,15 @@ namespace CU44
 
         private void btnIngresarPeriodo_Click(object sender, EventArgs e)
         {
-            //tomo las fechas de los datatimepicker
-            List<Llamada> listaLlamadas = controlador.tomarDatosPeriodoLlamada(fechaInicioPer.Value, fechaFinPer.Value);
-            dgLlamadas.DataSource = controlador.llamadasToDataTable(listaLlamadas);
+            controlador.tomarDatosPeriodoLlamada(fechaInicioPer.Value, fechaFinPer.Value);
+        }
+        public void pedirSeleccionLlamada(List<Llamada> llamadasRespondidas)
+        {
+            DataTable dtLlamadas = controlador.llamadasToDataTable(llamadasRespondidas);
+            dgLlamadas.DataSource = dtLlamadas;
             dgLlamadas.Enabled = true;
         }
 
-        public void pedirSeleccionLlamada()
-        {
-            List<Llamada> llamadas = controlador.getLlamadasRespondidas();
-            DataTable dtLlamadas = controlador.llamadasToDataTable(llamadas);
-            dgLlamadas.DataSource = dtLlamadas;
-        }
 
         private void PantallaConsultarEncuesta_Load(object sender, EventArgs e)
         {
@@ -56,19 +53,26 @@ namespace CU44
 
         }
 
-        private void seleccionarLlamada(object sender, DataGridViewCellEventArgs e)
+        private void tomarSeleccionLlamada(object sender, DataGridViewCellEventArgs e)
         {
             int indice = e.RowIndex;
+            controlador.tomarSeleccionLlamada(indice);
+            //String nombre = controlador.getLlamadaSeleccionada().getNombreCliente();
+            //Encuesta encuesta = controlador.getEncuestaLlamada();
+            //DataTable dtEncuesta = controlador.encuestasToDataTable(encuesta);
+            //lbNombre.Text = "Encuestado: " + nombre;
+            //lbNombre.Visible = true;
+            //dgEncuesta.DataSource = dtEncuesta;
+            //btnImprimirCSV.Enabled = true;
 
-            controlador.seleccionarLlamada(indice);
-            String nombre = controlador.getLlamadaSeleccionada().getNombreCliente();
-            lbNombre.Text = "Encuestado: "+nombre;
+        }
+
+        public void mostrarDatosLlamada(String nombre, DataTable dtEncuesta)
+        {
+            lbNombre.Text = "Encuestado: " + nombre;
             lbNombre.Visible = true;
-            Encuesta encuesta = controlador.getEncuestaLlamada();
-            DataTable dtEncuesta = controlador.encuestasToDataTable(encuesta);
             dgEncuesta.DataSource = dtEncuesta;
             btnImprimirCSV.Enabled = true;
-
         }
 
         private void btnImprimirCSV_Click(object sender, EventArgs e)
@@ -84,5 +88,6 @@ namespace CU44
         {
 
         }
+
     }
 }

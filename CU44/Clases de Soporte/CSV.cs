@@ -20,10 +20,11 @@ namespace CU44.Clases_de_Soporte
 
         public void imprimirCSVdeEncuesta(Encuesta e, Llamada l)
         {
+            CambioEstado cambioEstadoActual = l.ObtenerEstadoActual();
             String ruta = ".\\" + "Encuesta.csv", linea; 
             TextWriter file = new StreamWriter(ruta);
             file.WriteLine("Nombre Cliente, Estado Actual, Duracion de Llamada");
-            file.WriteLine(l.getNombreCliente() + "," + l.getNombreEstadoActual() + "," + l.getDuracion.ToString());
+            file.WriteLine(l.getNombreCliente() + "," + cambioEstadoActual.getNombreEstado() + "," + l.getDuracion.ToString());
             file.WriteLine();
             file.WriteLine("Pregunta, Respuesta");
             
