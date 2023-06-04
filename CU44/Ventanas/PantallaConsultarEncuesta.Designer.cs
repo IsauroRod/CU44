@@ -30,133 +30,127 @@ namespace CU44
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PantallaConsultarEncuesta));
-            label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            dgLlamadas = new System.Windows.Forms.DataGridView();
-            btnIngresarPeriodo = new System.Windows.Forms.Button();
-            dgEncuesta = new System.Windows.Forms.DataGridView();
-            fechaInicioPer = new System.Windows.Forms.DateTimePicker();
-            fechaFinPer = new System.Windows.Forms.DateTimePicker();
-            btnImprimirCSV = new System.Windows.Forms.Button();
-            lbNombre = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)dgLlamadas).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgEncuesta).BeginInit();
-            SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgLlamadas = new System.Windows.Forms.DataGridView();
+            this.btnIngresarPeriodo = new System.Windows.Forms.Button();
+            this.dgEncuesta = new System.Windows.Forms.DataGridView();
+            this.fechaInicioPer = new System.Windows.Forms.DateTimePicker();
+            this.fechaFinPer = new System.Windows.Forms.DateTimePicker();
+            this.btnImprimirCSV = new System.Windows.Forms.Button();
+            this.lbNombre = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgLlamadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEncuesta)).BeginInit();
+            this.SuspendLayout();
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(25, 69);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(73, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Fecha Inicio:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Fecha Inicio:";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(338, 69);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(63, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Fecha Fin: ";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(338, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Fecha Fin: ";
             // 
             // dgLlamadas
             // 
-            dgLlamadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgLlamadas.Enabled = false;
-            dgLlamadas.Location = new System.Drawing.Point(64, 118);
-            dgLlamadas.Name = "dgLlamadas";
-            dgLlamadas.RowTemplate.Height = 25;
-            dgLlamadas.Size = new System.Drawing.Size(512, 352);
-            dgLlamadas.TabIndex = 4;
-            dgLlamadas.CellContentClick += dgLlamadas_CellContentClick;
-            dgLlamadas.CellDoubleClick += tomarSeleccionLlamada;
+            this.dgLlamadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgLlamadas.Enabled = false;
+            this.dgLlamadas.Location = new System.Drawing.Point(64, 118);
+            this.dgLlamadas.Name = "dgLlamadas";
+            this.dgLlamadas.RowTemplate.Height = 25;
+            this.dgLlamadas.Size = new System.Drawing.Size(512, 352);
+            this.dgLlamadas.TabIndex = 4;
             // 
             // btnIngresarPeriodo
             // 
-            btnIngresarPeriodo.Location = new System.Drawing.Point(654, 69);
-            btnIngresarPeriodo.Name = "btnIngresarPeriodo";
-            btnIngresarPeriodo.Size = new System.Drawing.Size(195, 23);
-            btnIngresarPeriodo.TabIndex = 6;
-            btnIngresarPeriodo.Text = "Filtrar Por Periodo";
-            btnIngresarPeriodo.UseVisualStyleBackColor = true;
-            btnIngresarPeriodo.Click += btnIngresarPeriodo_Click;
+            this.btnIngresarPeriodo.Location = new System.Drawing.Point(654, 69);
+            this.btnIngresarPeriodo.Name = "btnIngresarPeriodo";
+            this.btnIngresarPeriodo.Size = new System.Drawing.Size(195, 23);
+            this.btnIngresarPeriodo.TabIndex = 6;
+            this.btnIngresarPeriodo.Text = "Filtrar Por Periodo";
+            this.btnIngresarPeriodo.UseVisualStyleBackColor = true;
             // 
             // dgEncuesta
             // 
-            dgEncuesta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgEncuesta.Location = new System.Drawing.Point(606, 118);
-            dgEncuesta.Name = "dgEncuesta";
-            dgEncuesta.RowTemplate.Height = 25;
-            dgEncuesta.Size = new System.Drawing.Size(431, 352);
-            dgEncuesta.TabIndex = 7;
-            dgEncuesta.CellContentClick += dataGridView1_CellContentClick;
+            this.dgEncuesta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgEncuesta.Location = new System.Drawing.Point(606, 118);
+            this.dgEncuesta.Name = "dgEncuesta";
+            this.dgEncuesta.RowTemplate.Height = 25;
+            this.dgEncuesta.Size = new System.Drawing.Size(431, 352);
+            this.dgEncuesta.TabIndex = 7;
             // 
             // fechaInicioPer
             // 
-            fechaInicioPer.Location = new System.Drawing.Point(104, 69);
-            fechaInicioPer.Name = "fechaInicioPer";
-            fechaInicioPer.Size = new System.Drawing.Size(210, 23);
-            fechaInicioPer.TabIndex = 8;
-            fechaInicioPer.ValueChanged += dateTimePicker1_ValueChanged;
+            this.fechaInicioPer.Location = new System.Drawing.Point(104, 69);
+            this.fechaInicioPer.Name = "fechaInicioPer";
+            this.fechaInicioPer.Size = new System.Drawing.Size(210, 23);
+            this.fechaInicioPer.TabIndex = 8;
             // 
             // fechaFinPer
             // 
-            fechaFinPer.Location = new System.Drawing.Point(407, 69);
-            fechaFinPer.Name = "fechaFinPer";
-            fechaFinPer.Size = new System.Drawing.Size(211, 23);
-            fechaFinPer.TabIndex = 9;
+            this.fechaFinPer.Location = new System.Drawing.Point(407, 69);
+            this.fechaFinPer.Name = "fechaFinPer";
+            this.fechaFinPer.Size = new System.Drawing.Size(211, 23);
+            this.fechaFinPer.TabIndex = 9;
             // 
             // btnImprimirCSV
             // 
-            btnImprimirCSV.Enabled = false;
-            btnImprimirCSV.Location = new System.Drawing.Point(925, 509);
-            btnImprimirCSV.Name = "btnImprimirCSV";
-            btnImprimirCSV.Size = new System.Drawing.Size(112, 23);
-            btnImprimirCSV.TabIndex = 10;
-            btnImprimirCSV.Text = "Imprimir Encuesta";
-            btnImprimirCSV.UseVisualStyleBackColor = true;
-            btnImprimirCSV.Click += btnImprimirCSV_Click;
+            this.btnImprimirCSV.Enabled = false;
+            this.btnImprimirCSV.Location = new System.Drawing.Point(925, 509);
+            this.btnImprimirCSV.Name = "btnImprimirCSV";
+            this.btnImprimirCSV.Size = new System.Drawing.Size(112, 23);
+            this.btnImprimirCSV.TabIndex = 10;
+            this.btnImprimirCSV.Text = "Imprimir Encuesta";
+            this.btnImprimirCSV.UseVisualStyleBackColor = true;
             // 
             // lbNombre
             // 
-            lbNombre.AutoSize = true;
-            lbNombre.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lbNombre.Location = new System.Drawing.Point(779, 95);
-            lbNombre.Name = "lbNombre";
-            lbNombre.Size = new System.Drawing.Size(59, 25);
-            lbNombre.TabIndex = 11;
-            lbNombre.Text = "label3";
-            lbNombre.Visible = false;
-            lbNombre.Click += label3_Click;
+            this.lbNombre.AutoSize = true;
+            this.lbNombre.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbNombre.Location = new System.Drawing.Point(779, 95);
+            this.lbNombre.Name = "lbNombre";
+            this.lbNombre.Size = new System.Drawing.Size(59, 25);
+            this.lbNombre.TabIndex = 11;
+            this.lbNombre.Text = "label3";
+            this.lbNombre.Visible = false;
             // 
             // PantallaConsultarEncuesta
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            AutoSize = true;
-            ClientSize = new System.Drawing.Size(1086, 544);
-            Controls.Add(lbNombre);
-            Controls.Add(btnImprimirCSV);
-            Controls.Add(fechaFinPer);
-            Controls.Add(fechaInicioPer);
-            Controls.Add(dgEncuesta);
-            Controls.Add(btnIngresarPeriodo);
-            Controls.Add(dgLlamadas);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "PantallaConsultarEncuesta";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Consultar   Encuesta";
-            Load += PantallaConsultarEncuesta_Load;
-            ((System.ComponentModel.ISupportInitialize)dgLlamadas).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgEncuesta).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1086, 544);
+            this.Controls.Add(this.lbNombre);
+            this.Controls.Add(this.btnImprimirCSV);
+            this.Controls.Add(this.fechaFinPer);
+            this.Controls.Add(this.fechaInicioPer);
+            this.Controls.Add(this.dgEncuesta);
+            this.Controls.Add(this.btnIngresarPeriodo);
+            this.Controls.Add(this.dgLlamadas);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "PantallaConsultarEncuesta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Consultar   Encuesta";
+            this.Load += new System.EventHandler(this.PantallaConsultarEncuesta_Load_1);
+            ((System.ComponentModel.ISupportInitialize)(this.dgLlamadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEncuesta)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
