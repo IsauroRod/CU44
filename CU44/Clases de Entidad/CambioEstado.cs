@@ -9,13 +9,11 @@ namespace CU44.Clases_de_Entidad
     public class CambioEstado
     {
         private DateTime fechaHoraInicio;
-        private DateTime? fechaHoraFin;
         private Estado estado;
 
         public CambioEstado(DateTime fechaHoraInicio, DateTime? fechaHoraFin, Estado estado)
         {
             this.fechaHoraInicio = fechaHoraInicio;
-            this.fechaHoraFin = fechaHoraFin;
             this.estado = estado;
         }
 
@@ -27,16 +25,6 @@ namespace CU44.Clases_de_Entidad
         public void setFechaHoraInicio(DateTime fechaInicio)
         {
             this.fechaHoraInicio = fechaInicio;
-        }
-        public DateTime getFechaHoraFin()
-        {
-            if (fechaHoraFin is null) { return default; }
-            return (DateTime)fechaHoraFin;
-        }
-
-        public void setFechaHoraFin(DateTime fechaFin)
-        {
-            this.fechaHoraFin = fechaFin;
         }
         public string getNombreEstado()
         {
@@ -51,13 +39,6 @@ namespace CU44.Clases_de_Entidad
         public bool esEstadoFinalizada()
         {
             return estado.esFinalizada();
-        }
-
-
-
-        public bool obtenerEstadoActual()
-        {
-            return (fechaHoraFin != null);
         }
 
 
