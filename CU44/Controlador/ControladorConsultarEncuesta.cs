@@ -1,4 +1,5 @@
 ﻿using CU44.Clases_de_Entidad;
+using CU44.Clases_de_Soporte;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -51,7 +52,7 @@ namespace CU44.Controlador
         public List<Llamada> getAll()
         {
 
-            llamadas = Llamada.traerTodasLasLlamadas();
+            llamadas = Mockup.traerTodasLasLlamadas();
             return llamadas;
 
         }
@@ -154,6 +155,7 @@ namespace CU44.Controlador
         public void finCU()
         {
             MessageBox.Show("Fin de Caso de Uso");
+            pantalla.Close();
         }
         public void getDatosLlamada()
         {

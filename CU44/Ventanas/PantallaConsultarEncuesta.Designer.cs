@@ -70,6 +70,7 @@ namespace CU44
             this.dgLlamadas.RowTemplate.Height = 25;
             this.dgLlamadas.Size = new System.Drawing.Size(512, 352);
             this.dgLlamadas.TabIndex = 4;
+            this.dgLlamadas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tomarSeleccionLlamada);
             // 
             // btnIngresarPeriodo
             // 
@@ -79,6 +80,7 @@ namespace CU44
             this.btnIngresarPeriodo.TabIndex = 6;
             this.btnIngresarPeriodo.Text = "Filtrar Por Periodo";
             this.btnIngresarPeriodo.UseVisualStyleBackColor = true;
+            this.btnIngresarPeriodo.Click += new System.EventHandler(this.btnIngresarPeriodo_Click);
             // 
             // dgEncuesta
             // 
@@ -112,6 +114,7 @@ namespace CU44
             this.btnImprimirCSV.TabIndex = 10;
             this.btnImprimirCSV.Text = "Imprimir Encuesta";
             this.btnImprimirCSV.UseVisualStyleBackColor = true;
+            this.btnImprimirCSV.Click += new System.EventHandler(this.btnImprimirCSV_Click);
             // 
             // lbNombre
             // 

@@ -19,15 +19,6 @@ namespace CU44
             InitializeComponent();
             controlador = new ControladorConsultarEncuesta(this);
         }
-        private void dgLlamadas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnIngresarPeriodo_Click(object sender, EventArgs e)
         {
@@ -40,18 +31,6 @@ namespace CU44
             dgLlamadas.Enabled = true;
         }
 
-
-        private void PantallaConsultarEncuesta_Load(object sender, EventArgs e)
-        {
-            List<Llamada> llamadas = controlador.getLlamadas();
-            DataTable dtLlamadas = controlador.llamadasToDataTable(llamadas);
-            dgLlamadas.DataSource = dtLlamadas;
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void tomarSeleccionLlamada(object sender, DataGridViewCellEventArgs e)
         {
@@ -84,14 +63,11 @@ namespace CU44
             controlador.finCU();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void PantallaConsultarEncuesta_Load_1(object sender, EventArgs e)
         {
-
+            List<Llamada> llamadas = controlador.getLlamadas();
+            DataTable dtLlamadas = controlador.llamadasToDataTable(llamadas);
+            dgLlamadas.DataSource = dtLlamadas;
         }
     }
 }
