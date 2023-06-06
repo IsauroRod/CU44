@@ -24,6 +24,16 @@ namespace CU44.Clases_de_Entidad
             return (nombre == "Iniciada");
         }
 
+        public bool esEnCurso()
+        {
+            return (nombre == "En Curso");
+        }
+
+        public bool esEscuchada()
+        {
+            return (nombre == "Escuchada");
+        }
+
         public string getNombre()
         {
             return nombre;

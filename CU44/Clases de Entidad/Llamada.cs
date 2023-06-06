@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CU44.Clases_de_Soporte;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,7 @@ namespace CU44.Clases_de_Entidad
         {
             cambiosEstado.Add(cambioEstado);
             if(this.buscarCambioEstadoFinal() != default) { 
-            if(this.duracion == null) { this.duracion = this.calcularDuracion();  }
+                if(this.duracion == null) { this.duracion = this.calcularDuracion();  }
             }
         }
 
@@ -72,18 +73,12 @@ namespace CU44.Clases_de_Entidad
         public CambioEstado buscarCambioEstadoFinal()
         {
             CambioEstado cE = default;
-            DateTime mayorFecha = default, fecha;
             foreach (CambioEstado cambio in cambiosEstado)
             {
-                fecha = cambio.getFechaHoraInicio();
-                if (mayorFecha == default)
-                {
-                    mayorFecha = fecha;
-                }
-                if (fecha.CompareTo(mayorFecha)>0)
+                if (cambio.esEstadoFinalizada())
                 {
                     cE = cambio;
-                    mayorFecha = fecha;
+                    break;
                 }
             }
             return cE;
@@ -101,8 +96,8 @@ namespace CU44.Clases_de_Entidad
 
         public Boolean esDePeriodo(DateTime fechaInicio, DateTime? fechaFinal)
         {
-            CambioEstado inicial = buscarCambioEstadoInicial(), final = buscarCambioEstadoFinal();
-            MessageBox.Show(getNombreCliente() + " Estado Final: " + final.getNombreEstado());
+            CambioEstado inicial = buscarCambioEstadoInicial();
+            CambioEstado final = buscarCambioEstadoFinal();
             DateTime fechaHoraComienzoLlamado = inicial.getFechaHoraInicio(), fechaHoraFinLlamado = final.getFechaHoraInicio();
             Boolean estaEnPeriodo = fechaHoraComienzoLlamado.CompareTo(fechaInicio) >= 0;
             estaEnPeriodo = estaEnPeriodo && fechaHoraFinLlamado.CompareTo(fechaFinal) <= 0;
@@ -161,6 +156,74 @@ namespace CU44.Clases_de_Entidad
         internal string getNombreEstadoActual()
         {
             return buscarCambioEstadoFinal().getNombreEstado();
+        }
+
+        public void iniciar(DateTime dateTime)
+        {
+            Estado iniciada = default;
+            foreach (Estado estado in Mockup.traerTodosLosEstados())
+            {
+                if (estado.esIniciada()) { iniciada = estado; break; }
+            }
+            CambioEstado cambio = new CambioEstado(dateTime, iniciada);
+            agregarCambioEstado(cambio);
+        }
+
+        public void iniciar()
+        {
+            iniciar(DateTime.Now);
+        }
+
+        public void finalizar(DateTime dateTime)
+        {
+            Estado finalizada = default;
+            foreach (Estado estado in Mockup.traerTodosLosEstados())
+            {
+                if (estado.esFinalizada()) { finalizada = estado; break; }
+            }
+            CambioEstado cambio = new CambioEstado(dateTime, finalizada);
+            agregarCambioEstado(cambio);
+        }
+
+        public void finalizar()
+        {
+            finalizar(DateTime.Now);
+        }
+
+        public void atender(DateTime fecha)
+        {
+            Estado enCurso = default;
+            foreach (Estado estado in Mockup.traerTodosLosEstados())
+            {
+                if (estado.esEnCurso()) { enCurso = estado; break; }
+            }
+            CambioEstado cambio = new CambioEstado(fecha, enCurso);
+            agregarCambioEstado(cambio);
+        }
+
+        public void atender() { 
+            atender(DateTime.Now); 
+        }
+
+        public void escuchar(DateTime fecha)
+        {
+            Estado escuchada = default;
+            foreach (Estado estado in Mockup.traerTodosLosEstados())
+            {
+                if (estado.esEscuchada()) { escuchada = estado; break; }
+            }
+            CambioEstado cambio = new CambioEstado(fecha, escuchada);
+            agregarCambioEstado(cambio);
+        }
+
+        public void escuchar()
+        {
+            escuchar(DateTime.Now);
+        }
+
+        public List<CambioEstado> GetCambioEstados()
+        {
+            return cambiosEstado;
         }
     }
 }

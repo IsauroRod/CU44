@@ -17,11 +17,6 @@ namespace CU44.Clases_de_Entidad
             this.estado = estado;
         }
 
-        public CambioEstado(DateTime fechaHoraInicio, DateTime? fecha ,Estado estado)
-        {
-            this.fechaHoraInicio = fechaHoraInicio;
-            this.estado = estado;
-        }
 
         public DateTime getFechaHoraInicio()
         {

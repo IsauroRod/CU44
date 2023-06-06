@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CU44.Clases_de_Entidad
 {
@@ -19,6 +20,11 @@ namespace CU44.Clases_de_Entidad
         public void agregarRespuesta(RespuestaPosible rta)
         {
             if(!respuestasPosibles.Contains(rta)) respuestasPosibles.Add(rta);
+        }
+
+        public void agregarRespuesta(String descripcion, String valor)
+        {
+            agregarRespuesta(new RespuestaPosible(descripcion, valor));
         }
 
         public string ListarRespuestasPosibles()
@@ -38,9 +44,24 @@ namespace CU44.Clases_de_Entidad
             return pregunta;
         }
 
-        public List<RespuestaPosible> getRespuestaPosible()
+        public List<RespuestaPosible> getRespuestasPosible()
         {
             return respuestasPosibles;
+        }
+
+        public RespuestaPosible getRespuestaPosible(int i)
+        {
+            i--; // Correcion al colocar 1 es 0.
+            RespuestaPosible respuestaPosible = default;
+            try
+            {
+                respuestaPosible = respuestasPosibles[i];
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Respuesta inexistente");
+            }
+            return respuestaPosible;
         }
 
     }

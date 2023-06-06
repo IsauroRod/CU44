@@ -32,7 +32,7 @@ namespace CU44.Clases_de_Soporte
             {
                 linea = "";
                 linea += pregunta.getPregunta() + ", ";
-                foreach (RespuestaPosible preguntaPosible in pregunta.getRespuestaPosible())
+                foreach (RespuestaPosible preguntaPosible in pregunta.getRespuestasPosible())
                 {
                     foreach (RespuestaDeCliente respuestaDeCliente in l.getRespuestaDeClientes())
                     {

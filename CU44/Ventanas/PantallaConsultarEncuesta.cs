@@ -56,11 +56,18 @@ namespace CU44
 
         private void btnImprimirCSV_Click(object sender, EventArgs e)
         {
-            CSV c = new CSV();
-            Encuesta encuesta = controlador.getEncuestaLlamada();
-            Llamada llamada = controlador.getLlamadaSeleccionada();
-            c.imprimirCSVdeEncuesta(encuesta, llamada);
-            controlador.finCU();
+
+            DialogResult d = MessageBox.Show("Desea Imprimir la encuesta de " + lbNombre.Text + "?", "Confirmación Para La Impresion", MessageBoxButtons.YesNo);
+            if (d == DialogResult.Yes)
+            {
+
+                CSV c = new CSV();
+                Encuesta encuesta = controlador.getEncuestaLlamada();
+                Llamada llamada = controlador.getLlamadaSeleccionada();
+                c.imprimirCSVdeEncuesta(encuesta, llamada);
+                controlador.finCU();
+            }
+            else { MessageBox.Show("Ok, no lo forzaremos"); }
         }
 
         private void PantallaConsultarEncuesta_Load_1(object sender, EventArgs e)

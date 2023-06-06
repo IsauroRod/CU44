@@ -120,7 +120,7 @@ namespace CU44.Controlador
                 foreach (Pregunta pregunta in encuesta.getPreguntas())
                 {
                     //fila["Pregunta"] = pregunta.getPregunta();
-                    foreach (RespuestaPosible respuestaPosible in pregunta.getRespuestaPosible())
+                    foreach (RespuestaPosible respuestaPosible in pregunta.getRespuestasPosible())
                     {
 
                         fila = dt.NewRow();
